@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线工具集 | Online Tools</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NP5NQWBHJC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-NP5NQWBHJC');
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f5f5f7;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1d1d1f;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            text-decoration: none;
+            color: #1d1d1f;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1d1d1f;
+        }
+
+        .tool-description {
+            font-size: 14px;
+            color: #6e6e73;
+            line-height: 1.4;
+        }
+
+        .language-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .language-switch:hover {
+            background: #f5f5f7;
+        }
+    </style>
+</head>
+<body>
+    <button class="language-switch" onclick="toggleLanguage()">English</button>
+    <div class="container">
+        <h1 id="main-title">实用在线工具</h1>
+        <div class="tools-grid">
+            <a href="https://json.tttooo.top" class="tool-card">
+                <div class="tool-name" data-tool="jsonFormatter">JSON格式化</div>
+                <div class="tool-description" data-tool="jsonFormatter">便捷查看和编辑JSON数据</div>
+            </a>
+
+            <a href="https://compress.tttooo.top" class="tool-card">
+                <div class="tool-name" data-tool="compression">图片/音频压缩</div>
+                <div class="tool-description" data-tool="compression">对图片和音频进行自定义质量压缩</div>
+            </a>
+
+            <a href="https://encode.tttooo.top" class="tool-card">
+                <div class="tool-name" data-tool="encoding">编码转换</div>
+                <div class="tool-description" data-tool="encoding">轻松转换常见编码</div>
+            </a>
+
+            <a href="https://time.tttooo.top" class="tool-card">
+                <div class="tool-name" data-tool="timestamp">时间戳转换</div>
+                <div class="tool-description" data-tool="timestamp">时间戳与时间便捷转换</div>
+            </a>
+        </div>
+    </div>
+
+    <script src="translations.js"></script>
+    <script>
+        let currentLang = 'zh';
+
+        function updateText() {
+            // 更新标题
+            document.getElementById('main-title').textContent = translations.title[currentLang];
+
+            // 更新工具名称和描述
+            document.querySelectorAll('.tool-name').forEach(element => {
+                const tool = element.getAttribute('data-tool');
+                element.textContent = translations.tools[tool].name[currentLang];
+            });
+
+            document.querySelectorAll('.tool-description').forEach(element => {
+                const tool = element.getAttribute('data-tool');
+                element.textContent = translations.tools[tool].description[currentLang];
+            });
+
+            // 更新语言切换按钮
+            document.querySelector('.language-switch').textContent = translations.languageButton[currentLang];
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            document.documentElement.lang = currentLang === 'en' ? 'en' : 'zh-CN';
+            updateText();
+            localStorage.setItem('preferredLanguage', currentLang);
+        }
+
+        function getBrowserLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            return browserLang.startsWith('zh') ? 'zh' : 'en';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            const initialLang = savedLang || getBrowserLanguage();
+            
+            if (initialLang !== currentLang) {
+                currentLang = initialLang;
+                updateText();
+            }
+        });
+    </script>
+</body>
+</html> 
