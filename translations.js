@@ -43,6 +43,26 @@ const translations = {
                 zh: "时间戳与时间便捷转换",
                 en: "Convert between timestamp and datetime"
             }
+        },
+        imageToText: {
+            name: {
+                zh: "图片转文本",
+                en: "Image to Text"
+            },
+            description: {
+                zh: "便捷提取图片中的文本信息",
+                en: "Easily extract text from images"
+            }
+        },
+        timer: {
+            name: {
+                zh: "时间计时器",
+                en: "Timer"
+            },
+            description: {
+                zh: "简单的计时工具",
+                en: "Simple timing tool"
+            }
         }
     },
     languageButton: {
