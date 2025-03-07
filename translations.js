@@ -57,7 +57,7 @@ const translations = {
         timer: {
             name: {
                 zh: "时间计时器",
-                en: "Clock"
+                en: "Clocks"
             },
             description: {
                 zh: "简单的计时工具",
