@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>在线工具集 | Online Tools</title>
+    <title>在线工具集</title>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NP5NQWBHJC"></script>
     <script>
@@ -133,6 +133,9 @@
         let currentLang = 'zh';
 
         function updateText() {
+            // 更新页面标题
+            document.title = translations.pageTitle[currentLang];
+
             // 更新标题
             document.getElementById('main-title').textContent = translations.title[currentLang];
 
