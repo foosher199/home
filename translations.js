@@ -38,6 +38,26 @@ const translations = {
                 en: "Customize quality compression for images and audio"
             }
         },
+        cropImage: {
+            name: {
+                zh: "批量裁剪图片",
+                en: "Batch Crop Images"
+            },
+            description: {
+                zh: "快速批量裁剪多张图片",
+                en: "Quickly crop multiple images in batch"
+            }
+        },
+        pixelImage: {
+            name: {
+                zh: "图片转像素风",
+                en: "Pixel Art Converter"
+            },
+            description: {
+                zh: "将普通图片转换为像素风格图片",
+                en: "Convert normal images to pixel art style"
+            }
+        },
         imageToText: {
             name: {
                 zh: "图片转文本",
@@ -61,7 +81,7 @@ const translations = {
         timer: {
             name: {
                 zh: "时间计时器",
-                en: "Timer"
+                en: "Clock"
             },
             description: {
                 zh: "简单的计时工具",
